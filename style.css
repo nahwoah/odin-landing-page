@@ -20,7 +20,8 @@ body{
     /* align-items: center; */
     /* margin-left: 200px;
     margin-right: 200px; */
-    
+    gap: 1rem;
+    align-items: center;
 }
 
 .header-logo{
@@ -35,9 +36,15 @@ body{
     color: white;
 }
 
+.main-container{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: auto;
+}
+
 .section1 img{
     max-width: 400px;
-    height: 250px;
+    height: 260px;
 }
 
 .section2 img{
