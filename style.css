@@ -1,259 +1,291 @@
-/* html, body{
-    height: 100%;
-} */
-
-body{
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+/* ===== baseline fixes ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-/* .page{
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-} */
+body{
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
 
 .header{
-    background-color: #1f2937;
+  background-color: #1f2937;
 }
 
 .container1{
-    background-color: #1f2937;
+  background-color: #1f2937;
 }
 
 .header-list{
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 24px;
-    display: flex;
-    /* align-items: center; */
-    /* margin-left: 200px;
-    margin-right: 200px; */
-    gap: 1rem;
-    align-items: center;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap; /* allows header items to wrap on small screens */
 }
 
 .header-logo{
-    margin-right: auto;
-    font-size: 24px;
-    color: #f9faf8;
+  margin-right: auto;
+  font-size: 24px;
+  color: #f9faf8;
 }
 
-.header-list li, a{
-    text-decoration: none;
-    list-style-type: none;
-    color: white;
+/* IMPORTANT: your selector "li, a" was too broad; this keeps it scoped */
+.header-list li{
+  list-style-type: none;
+}
+
+.header-list a{
+  text-decoration: none;
+  color: white;
 }
 
 .main{
-    flex: 1;
+  flex: 1;
 }
 
+/* Make images responsive by default */
 .section1 img{
-    max-width: 400px;
-    height: 260px;
+  max-width: 400px;
+  width: 100%;
+  height: auto; /* was fixed 260px */
 }
 
 .section2 img{
-    width: 100px;
-    height: 100px;
+  width: 100px;
+  height: 100px;
 }
 
 .section1{
-    background-color: #1f2937;
-    display: flex;
-    justify-content: center;
-    /* margin-right: 200px;
-    margin-left: 200px;
-    margin-top: 50px; */
-    /* margin-bottom: 50px; */
-    padding: 100px;
+  background-color: #1f2937;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 64px 24px; /* was 100px (too much for mobile) */
+  flex-wrap: wrap; /* lets text + image stack when needed */
 }
 
 .section1-text1{
-    font-size: 48px;
-    color: #f9faf8;
-    font-weight: 900;
+  font-size: 48px;
+  color: #f9faf8;
+  font-weight: 900;
 }
 
 .section1-text2{
-    font-size: 18px;
-    color: #e5e7eb;
+  font-size: 18px;
+  color: #e5e7eb;
 }
 
 .section1-signup{
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    flex-shrink: 0;
-    max-width: 400px;
-    gap: 1rem;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 320px; /* allows shrinking/growing */
+  max-width: 400px;
+  gap: 1rem;
+  justify-content: space-between;
 }
 
 .section1 button{
-    color: white;
-    background-color: #3882f6;
-    width: 86px;
-    height: 28px;
-    border-radius: 5px;
-    border: none;
+  color: white;
+  background-color: #3882f6;
+  width: 86px;
+  height: 28px;
+  border-radius: 5px;
+  border: none;
 }
 
 .section1 button:hover{
-    box-shadow:0 8px 16px 0 rgba(0,0,0,0.6);
-    transition-duration: 0.3s;
+  box-shadow:0 8px 16px 0 rgba(0,0,0,0.6);
+  transition-duration: 0.3s;
 }
 
 .section1 button:active{
-    box-shadow: 0 5px #666;
+  box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
 
 .section2{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  min-height: 350px;
 }
 
 .section2-info{
-    padding: 32px;
-    font-size: 36px;
-    color: #1f2937;
-    font-weight: 900;
+  padding: 32px;
+  font-size: 36px;
+  color: #1f2937;
+  font-weight: 900;
 }
 
 .section2-images{
-    display: flex;
+  display: flex;
+  flex-wrap: wrap;      /* allows the 4 items to wrap on phones */
+  justify-content: center;
+  gap: 1rem;
+  padding: 0 24px;
 }
 
 .section2-image1, .section2-image2, .section2-image3, .section2-image4{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    max-width: 250px;
-    gap: 1rem;
-}
-
-.section2-image1, .section2-image2, .section2-image3, .section2-image4{
-    padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: 250px;
+  gap: 1rem;
+  padding: 8px;
 }
 
 .section2-images img{
-    outline: solid #3882f6 2px;
-    border-radius: 5px;
+  outline: solid #3882f6 2px;
+  border-radius: 5px;
 }
 
 .section3{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 50px;
-    background-color: #E5E7EB;
-    color: #1f2937;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 24px; /* less side padding */
+  background-color: #E5E7EB;
+  color: #1f2937;
 }
 
 .section3-container{
-    max-width: 800px;
-    display: flex;
-    flex-direction: column;
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .section3-text1{
-    height: 200px;
-    max-width: 800px;
-    min-width: 600px;
-    font-size: 36px;
-    font-weight: 300;
-    font-style: italic;
+  /* remove fixed heights/widths that break mobile */
+  max-width: 800px;
+  width: 100%;
+  height: auto;        /* was 200px */
+  min-width: 0;        /* was 600px (major mobile breaker) */
+  font-size: 36px;
+  font-weight: 300;
+  font-style: italic;
 }
 
 .section3-text2{
-    font-size: 16px;
-    color: #1f2937;
-    font-weight: 900;
-    align-self: flex-end;
+  font-size: 16px;
+  color: #1f2937;
+  font-weight: 900;
+  align-self: flex-end;
 }
 
 .section4{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 24px;
+  min-height: 400px;
 }
 
 .section4-container{
-    color: white;
-    background-color: #3882f6;
-    border-radius: 5px;
+  color: white;
+  background-color: #3882f6;
+  border-radius: 5px;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 
-    max-width: 800px;
-    max-height: 150px;
-    min-width: 800px;
-    min-height: 150px;
+  max-width: 800px;
+  width: 100%;      /* make it responsive */
+  min-width: 0;     /* was 800px (major mobile breaker) */
+  min-height: 150px;
+  padding: 24px;    /* add inner padding instead of forcing width */
 
-    gap: 1rem;
+  gap: 1rem;
 }
 
 .section4-text{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .sec4-text1{
-    font-size: 24px;
-    font-weight: 600;
+  font-size: 24px;
+  font-weight: 600;
 }
 
 .section4 button{
-    color: white;
-    background-color: #3882f6;
-    width: 86px;
-    height: 28px;
-    border-radius: 5px;
-    outline: solid white 2px;
-    border: none;
+  color: white;
+  background-color: #3882f6;
+  width: 86px;
+  height: 28px;
+  border-radius: 5px;
+  outline: solid white 2px;
+  border: none;
 }
 
 .section4 button:hover{
-    background-color: #40a5d4;
-    transition-duration: 0.5s;
+  background-color: #40a5d4;
+  transition-duration: 0.5s;
 }
 
 .section4 button:active{
-    box-shadow: 0 5px #666;
+  box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
 
-
 .footer{
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 52px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #1f2937;
-    color: white;
-    font-size: 12px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1f2937;
+  color: white;
+  font-size: 12px;
 }
 
+/* ===== mobile tweaks ===== */
+@media (max-width: 600px) {
+  .section1{
+    padding: 32px 16px;
+  }
 
-/* *{
-    outline: solid red;
-} */
+  .section1-text1{
+    font-size: 36px;
+  }
+
+  .section2-info{
+    font-size: 28px;
+    padding: 24px 16px;
+    text-align: center;
+  }
+
+  .section3{
+    padding: 32px 16px;
+  }
+
+  .section3-text1{
+    font-size: 24px;
+  }
+
+  .section4-container{
+    flex-direction: column; /* stack text + button */
+    text-align: center;
+  }
+
+  .section3-text2{
+    align-self: center;
+  }
+}
